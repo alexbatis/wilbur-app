@@ -1,0 +1,15 @@
+.section-shaped .shape-style-1.shape-primary {
+    background: linear-gradient(150deg,#A2AAAD 15%, #002855 70%,  #A2AAAD 94%);
+}
+
+hr {
+    margin-top : 0px;
+}
+
+.form-section {
+    margin-bottom: 2.5em
+}
+
+.member-variable-card {
+    margin-bottom: 2em;
+}

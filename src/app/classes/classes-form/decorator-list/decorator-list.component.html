@@ -1,0 +1,12 @@
+<div class="list-group">
+  <div *ngFor="let decorator of decorators.controls" class="list-group-item clearfix" style="height: 35px; padding: 5px 15px;">
+    <ng-container *ngIf="decorator.value.name; then decoratorExists; else decoratorDoesNotExist"></ng-container>
+
+    <ng-template #decoratorExists>{{ decorator.value.name }}{{ decorator.value.params|paramsSubtitle }}</ng-template>
+    <ng-template #decoratorDoesNotExist> <span style="color:red">Configure this decorator</span></ng-template>
+    <span class="pull-right">
+      <a (click)="editDecorator(decorator)" style="margin-right:10px;"> <i class="fa fa-cog" aria-hidden="true"></i></a>
+      <a (click)="removeDecorator(decorator.value.id)"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+    </span>
+  </div>
+</div>

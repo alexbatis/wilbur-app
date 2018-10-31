@@ -1,0 +1,105 @@
+<main>
+  <div class="position-relative" [ngsReveal]="{ reset: false }">
+    <!-- Hero for FREE version -->
+    <section class="section section-lg section-hero section-shaped">
+      <!-- Background circles -->
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+      </div>
+      <div class="container-fluid shape-container d-flex align-items-center py-lg">
+        <div class="col px-0">
+          <div class="row align-items-center justify-content-center" [ngsReveal]="{ duration: 100, reset: true }">
+            <div class="col-lg-6 text-center">
+              <h1 class="text-white">Generate a boilerplate project</h1>
+              <p class="lead text-white">Create a fully featured api with no configuration</p>
+              <!-- <p class="lead text-white"></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-grey" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+  </div>
+  <section class="section section-lg pt-lg-0" style="visibility: none; background-color:#f4f5f7" style="padding-bottom:33px">
+    <div *ngVar="(yeomanState$ | async) as yeomanState">
+      <div class="container">
+
+        <ng-container *ngIf="yeomanState.installedGenerators.loading || yeomanState.generatorRunning; then loading; else loaded"></ng-container>
+
+        <ng-template #loading>
+          <div>
+            <app-spinner></app-spinner>
+            <h4 *ngIf="!yeomanState.generatorInstalling">Wilbur is generating your project...</h4>
+            <h4 *ngIf="yeomanState.generatorInstalling">Installing dependencies...this will take a few moments based on your internet connection.</h4>
+          </div>
+        </ng-template>
+        <ng-template #loaded>
+          <div>
+            <div *ngIf="generatorIsInstalled && !generatorRan">
+              <h2>Lets generate your app</h2>
+              <app-directory-selector></app-directory-selector>
+
+              <div>
+                <h5>{{yeomanState.selectedDirectoryPath}}</h5>
+
+                <br>
+                <hr>
+                <h4>Install Dependencies</h4>
+                <div class="custom-control custom-radio mb-3">
+                  <input name="custom-radio-1" class="custom-control-input" id="add_edit" value="--install" [(ngModel)]="dependencyInstallation"
+                    type="radio">
+                  <label class="custom-control-label" for="add_edit">
+                    <span>Install Dependencies using NPM</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                  <input name="custom-radio-1" class="custom-control-input" id="remove" value="--yarn-install"
+                    [(ngModel)]="dependencyInstallation" type="radio">
+                  <label class="custom-control-label" for="remove">
+                    <span>Install Dependencies using Yarn</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                  <input name="custom-radio-1" class="custom-control-input" id="no_install" value="" [(ngModel)]="dependencyInstallation"
+                    type="radio">
+                  <label class="custom-control-label" for="no_install">
+                    <span>Don't install dependencies</span>
+                  </label>
+                </div>
+
+                <hr>
+                <br>
+                <div *ngIf="yeomanState.selectedDirectoryPath">
+                  <h3>All set?</h3>
+                  <button (click)="beginBoilerplateGenerator()" class="btn btn-primary">Generate your boilerplate app</button>
+                </div>
+              </div>
+
+              <br>
+              <br>
+            </div>
+            <div *ngIf="!generatorIsInstalled">
+              <install-generator-card></install-generator-card>
+            </div>
+            <app-prompt></app-prompt>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,132 @@
+<!-- Class Form -->
+<form id="classForm" [ngrxFormState]="formState$ | async" (submit)="submit()"></form>
+<main [ngsReveal]="{ reset: false }">
+  <!-- Heading -->
+  <section id="header">
+    <div class="position-relative">
+      <section class="section section-lg section-hero section-shaped">
+        <!-- Background circles -->
+        <div class="shape shape-style-1 shape-primary">
+          <span class="span-150"></span>
+          <span class="span-50"></span>
+          <span class="span-50"></span>
+          <span class="span-75"></span>
+          <span class="span-100"></span>
+          <span class="span-75"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+        </div>
+        <div class="container shape-container d-flex align-items-center py-lg">
+          <div class="col px-0">
+            <div class="row align-items-center justify-content-center" [ngsReveal]="{ duration: 100, reset: true }">
+              <div class="col-lg-6 text-center">
+                <h1 class="text-white">Define a new class</h1>
+                <p class="lead text-white">Fill out a form and get a powerful api endpoint in return</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew zindex-100">
+          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <polygon style="fill:#f4f5f7;" points="2560 0 2560 100 0 100"></polygon>
+          </svg>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <div class="py-5 bg-secondary">
+    <div class="container">
+      <!-- CLASS INFORMATION -->
+      <section id="classInformation" class="form-section">
+        <h2>Class Information</h2>
+        <hr>
+        <div class="row">
+          <!-- Class Name -->
+          <div class="col-md-6 col-sm-12">
+            <ngrx-text-input [control]="(formState$ | async).controls.name" [placeHolder]="'Class name'" [heading]="'Your class\'s name'"
+              [alternative]="true"></ngrx-text-input>
+          </div>
+          <!-- Class Description -->
+          <div class="col-md-6 col-sm-12">
+            <ngrx-text-input [control]="(formState$ | async).controls.description" [placeHolder]="'Class description'"
+              [heading]="'Your class\'s description'"></ngrx-text-input>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MEMBER VARIABLES -->
+      <section id="memberVariables">
+        <h2>Member Variables</h2>
+        <hr>
+        <ng-container *ngIf="(formState$ | async).controls.memberVariables.value.length; then memberVariables; else noMemberVariables"></ng-container>
+
+        <!-- No member variables -->
+        <ng-template #noMemberVariables>
+          <h5>There are no member variables defined for this class</h5>
+        </ng-template>
+
+        <!-- Member variables -->
+        <ng-template #memberVariables>
+          <ngx-masonry>
+            <ngxMasonryItem *ngFor="let memberVariable of (formState$ | async).controls.memberVariables.controls; trackBy: trackByIndex; let i=index"
+              class="col-sm-12 col-lg-6 member-variable-card">
+              <member-variable-form-card [memberVariable]="memberVariable"></member-variable-form-card>
+            </ngxMasonryItem>
+          </ngx-masonry>
+        </ng-template>
+        <button (click)="createNewMemberVariable()" class="btn btn-info" type="button">Define a new member variable</button>
+        <br>
+      </section>
+
+      <!-- Submit & Reset buttons -->
+      <section id="buttons">
+        <h3>All set?</h3>
+        <hr>
+        <button type="submit" form="classForm" [disabled]="(formState$ | async).isInvalid" class="btn btn-primary">Define
+          Class</button>
+        <button type="button" form="classForm" [disabled]="(formState$ | async).isPristine && (formState$ | async).isUntouched && (formState$ | async).isUnsubmitted"
+          class="btn btn-info" (click)="reset()">Start
+          over</button>
+      </section>
+    </div>
+
+  </div>
+
+
+</main>
+
+<button type="button" style="display:none" id="app-form-error-notification" class="btn btn-block btn-warning mb-3"
+  data-toggle="modal" data-target="#modal-notification">Notification</button>
+
+<!-- Error Messages Modal - TODO : refactor for ngx-smart-modal -->
+<div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification"
+  aria-hidden="true">
+  <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+    <div class="modal-content bg-gradient-danger">
+      <div class="modal-header">
+        <h6 class="modal-title" id="modal-title-notification">You're almost there</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="py-3 text-center">
+          <i class="ni ni-bell-55 ni-3x"></i>
+          <h4 class="heading mt-4">Your class is invalid for the following reasons:</h4>
+          <p>{{ errors | validationErrorMessage}}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Ok, Got it</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Decorator form modal -->
+<decorator-form-modal></decorator-form-modal>

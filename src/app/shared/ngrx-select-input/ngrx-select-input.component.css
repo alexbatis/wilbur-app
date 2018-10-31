@@ -1,0 +1,25 @@
+.bootstrap-select.form-control.is-invalid {
+    border: 1px solid;
+    border-color: #fb6340;
+}
+
+.bootstrap-select.form-control.is-valid {
+    border: 1px solid;
+    border-color: #2dce89;
+}
+ 
+.form-error {
+    color: red;
+    margin-left: 5px;
+    font-size: .75em;
+}
+
+
+.dropdown-toggle.is-invalid {
+    border: 1px solid;
+    border-color: #fb6340;
+}
+
+.dropdown-toggle {
+    border: 1px solid #cad1d7;
+}

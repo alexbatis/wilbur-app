@@ -1,0 +1,38 @@
+<!-- Modal instance -->
+<ngx-smart-modal #updateModal identifier="updateModal" dismissable="false" (onDataAdded)="dataAdded()"
+  (onAnyCloseEventFinished)="onAnyClose()" (onOpen)="onOpen()" customClass="nsm-dialog-animation-ttb">
+
+  <div *ngIf="data">
+    <h5>An update to the application is available</h5>
+    <p>Version {{data.latestVersion}} of wilbur-app is now available. You're currently running {{environment.version}}</p>
+    <p>The following changes have been released: </p>
+    <ul>
+      <li *ngFor="let change of data.changes">{{change}}</li>
+    </ul>
+    <p>Download the latest version</p>
+    <a href="javascript:void(0)" (click)="openLink(data.downloadLinkWindows)">Windows</a>
+    <br>
+    <a href="javascript:void(0)" (click)="openLink(data.downloadLinkMac)">Mac</a>
+    <br>
+    <hr>
+    <a href="javascript:void(0)" (click)="openLink(appGithubRepo)">Check out the wilbur-app repo</a>
+    <br>
+    <hr>
+  </div>
+
+  <div *ngIf="versionMismatch">
+    <h5>An update to the generator is available.</h5>
+    <p>You're running version {{wilburGenerator.version}} but version {{yeomanState.generatorLatestVersion}} is
+      available.</p>
+    <p>To install this update, run the following command in a terminal window:</p>
+    <pre>  $ npm install -g generator-wilbur</pre>
+    <br>
+    <a href="javascript:void(0)" (click)="openLink(generatorGithubRepo)">Check out the wilbur-generator repo</a>
+    <br>
+    <hr>
+  </div>
+
+
+  <!-- Close modal button -->
+  <button class="btn btn-primary-outline" (click)="confirm()">Got it</button>
+</ngx-smart-modal>

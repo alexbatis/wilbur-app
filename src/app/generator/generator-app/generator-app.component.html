@@ -1,0 +1,90 @@
+<main>
+  <app-page-header [title]="'Generate a defined app'" [subtitle]="'Easily generate an app you\'ve already configured.'">
+  </app-page-header>
+
+  <section class="section section-lg pt-lg-0" style="visibility: none; background-color:#f4f5f7" style="padding-bottom:33px">
+    <div *ngVar="(yeomanState$ | async) as yeomanState">
+      <div class="container">
+
+        <ng-container *ngIf="yeomanState.installedGenerators.loading || yeomanState.generatorRunning; then loading; else loaded"></ng-container>
+
+        <ng-template #loading>
+          <div>
+            <app-spinner></app-spinner>
+            <h4 *ngIf="!yeomanState.generatorInstalling">Wilbur is generating your project...</h4>
+            <h4 *ngIf="yeomanState.generatorInstalling">Installing dependencies...this will take a few moments based on your internet connection.</h4>
+          
+          </div>
+        </ng-template>
+        <ng-template #loaded>
+          <div *ngIf="generatorIsInstalled">
+            <h2>Lets generate your app</h2>
+            <div *ngIf="!selectedApp" style="min-height:422px">
+              <div *ngVar="(appsState$ | async) as appsState">
+
+                <h4>Select the app you'd like to generate</h4>
+                <ng-select #classesSelect [items]="appsState" bindLabel="appName" [multiple]="false" [closeOnSelect]="false"
+                  [searchable]="true" placeholder="Select App" [(ngModel)]="selectedApp">
+                </ng-select>
+              </div>
+            </div>
+
+            <div *ngIf="selectedApp && generatorIsInstalled && !generatorRan">
+              <h5>You've chosen to generate the app with the name {{selectedApp.appName}}</h5>
+              <button (click)="clearAppSelection()" class="btn btn-primary">Clear this selection</button>
+              <hr>
+
+              <app-directory-selector></app-directory-selector>
+
+              <div *ngIf="yeomanState.selectedDirectoryPath">
+                <br>
+                <h5>Your app will be generated at {{yeomanState.selectedDirectoryPath}}</h5>
+              </div>
+
+              <hr>
+              
+              <h4>Install Dependencies</h4>
+              <div class="custom-control custom-radio mb-3">
+                <input name="custom-radio-1" class="custom-control-input" id="add_edit" value="--install" [(ngModel)]="dependencyInstallation"
+                  type="radio">
+                <label class="custom-control-label" for="add_edit">
+                  <span>Install Dependencies using NPM</span>
+                </label>
+              </div>
+              <div class="custom-control custom-radio mb-3">
+                <input name="custom-radio-1" class="custom-control-input" id="remove" value="--yarn-install"
+                  [(ngModel)]="dependencyInstallation" type="radio">
+                <label class="custom-control-label" for="remove">
+                  <span>Install Dependencies using Yarn</span>
+                </label>
+              </div>
+              <div class="custom-control custom-radio mb-3">
+                <input name="custom-radio-1" class="custom-control-input" id="no_install" value="" [(ngModel)]="dependencyInstallation"
+                  type="radio">
+                <label class="custom-control-label" for="no_install">
+                  <span>Don't install dependencies</span>
+                </label>
+              </div>
+
+              <div *ngIf="yeomanState.selectedDirectoryPath">
+                  <hr>
+                  <br>
+                <h3>All set?</h3>
+                <button (click)="beginAppGenerator()" class="btn btn-primary">Generate your app</button>
+              </div>
+
+              <br>
+              <br>
+            </div>
+            <app-prompt></app-prompt>
+          </div>
+          <div *ngIf="!generatorIsInstalled">
+            <install-generator-card></install-generator-card>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+
+
+</main>

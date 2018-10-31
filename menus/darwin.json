@@ -1,0 +1,115 @@
+{
+  "menu": [{
+      "label": "<%= productName %>",
+      "submenu": [{
+          "label": "About <%= productName %>",
+          "command": "application:about"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "label": "Quit",
+          "command": "application:quit",
+          "accelerator": "Command+Q"
+        }
+      ]
+    },
+    {
+      "label": "View",
+      "submenu": [{
+          "label": "Reload",
+          "command": "window:reload",
+          "accelerator": "Command+R"
+        },
+        {
+          "label": "Toggle Full Screen",
+          "command": "window:toggle-full-screen",
+          "accelerator": "Command+Control+F"
+        },
+        {
+          "label": "Developer",
+          "submenu": [{
+              "label": "Run Tests...",
+              "command": "application:run-specs",
+              "accelerator": "Alt+Command+T"
+            },
+            {
+              "label": "Toggle Developer Tools",
+              "command": "window:toggle-dev-tools",
+              "accelerator": "Alt+Command+I"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Window",
+      "submenu": [{
+          "label": "Minimize",
+          "selector": "performMiniaturize:",
+          "accelerator": "Command+M"
+        },
+        {
+          "label": "Zoom",
+          "selector": "performZoom:"
+        }
+      ]
+    },
+    {
+      "label": "Help",
+      "submenu": [{}]
+    },
+    {
+      "label": "Application",
+      "submenu": [{
+          "label": "About Application",
+          "selector": "orderFrontStandardAboutPanel:"
+        },
+        {
+          "type": "separator"
+        }
+      ]
+    },
+    {
+      "label": "Edit",
+      "submenu": [{
+          "label": "Undo",
+          "accelerator": "CmdOrCtrl+Z",
+          "selector": "undo:"
+        },
+        {
+          "label": "Redo",
+          "accelerator": "Shift+CmdOrCtrl+Z",
+          "selector": "redo:"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "label": "Cut",
+          "accelerator": "CmdOrCtrl+X",
+          "selector": "cut:"
+        },
+        {
+          "label": "Copy",
+          "accelerator": "CmdOrCtrl+C",
+          "selector": "copy:"
+        },
+        {
+          "label": "Paste",
+          "accelerator": "CmdOrCtrl+V",
+          "selector": "paste:"
+        },
+        {
+          "label": "Select All",
+          "accelerator": "CmdOrCtrl+A",
+          "selector": "selectAll:"
+        }
+      ]
+    }
+  ]
+}

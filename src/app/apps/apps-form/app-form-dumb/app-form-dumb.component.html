@@ -1,0 +1,132 @@
+<form id="appForm" [ngrxFormState]="formState$ | async" (submit)="submit()"></form>
+<div>
+<main [ngsReveal]="{ reset: false }">
+        <!-- Heading -->
+        <section id="header">
+          <div class="position-relative">
+            <section class="section section-lg section-hero section-shaped">
+              <!-- Background circles -->
+              <div class="shape shape-style-1 shape-primary">
+                <span class="span-150"></span>
+                <span class="span-50"></span>
+                <span class="span-50"></span>
+                <span class="span-75"></span>
+                <span class="span-100"></span>
+                <span class="span-75"></span>
+                <span class="span-50"></span>
+                <span class="span-100"></span>
+                <span class="span-50"></span>
+                <span class="span-100"></span>
+              </div>
+              <div class="container shape-container d-flex align-items-center py-lg">
+                <div class="col px-0">
+                  <div class="row align-items-center justify-content-center" [ngsReveal]="{ duration: 100, reset: true }">
+                    <div class="col-lg-6 text-center">
+                      <h1 class="text-white">Define a new app</h1>
+                      <p class="lead text-white">You're almost there. Let's scaffold your application.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- SVG separator -->
+              <div class="separator separator-bottom separator-skew zindex-100">
+                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <polygon style="fill:#f4f5f7;" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+              </div>
+            </section>
+          </div>
+        </section>
+      
+        <div class="py-5 bg-secondary">
+          <div class="container">
+            <!-- CLASS INFORMATION -->
+            <section id="appInformation" class="form-section">
+              <h2>App Information</h2>
+              <hr>
+              <div class="row">
+                <!-- Class Name -->
+                <div class="col-md-6 col-sm-12">
+                  <ngrx-text-input [control]="(formState$ | async).controls.appName" [placeHolder]="'App name'" [heading]="'Your app\'s name'"
+                    [alternative]="true"></ngrx-text-input>
+                </div>
+                <!-- Class Description -->
+                <div class="col-md-6 col-sm-12">
+                  <ngrx-text-input [control]="(formState$ | async).controls.description" [placeHolder]="'App description'"
+                    [heading]="'Your app\'s description'"></ngrx-text-input>
+                </div>
+      
+              </div>
+            </section>
+
+            <section id="authorInformation" class="form-section">
+                <h2>Author Information</h2>
+                <hr>
+                <div class="row">
+                  <!-- Author Name -->
+                  <div class="col-md-6 col-sm-12">
+                    <ngrx-text-input [control]="(formState$ | async).controls.author.controls.name" [placeHolder]="'Author name'" [heading]="'Author\'s name'"
+                      [alternative]="true"></ngrx-text-input>
+                  </div>
+                  <!-- Author Email -->
+                  <div class="col-md-6 col-sm-12">
+                      <ngrx-text-input [control]="(formState$ | async).controls.author.controls.email" [placeHolder]="'Author email'" [heading]="'Author\'s email'"
+                      [heading]="'Author\'s email'"></ngrx-text-input>
+                  </div>
+                  <!-- Author Github -->
+                  <div class="col-md-6 col-sm-12">
+                      <ngrx-text-input [control]="(formState$ | async).controls.author.controls.github" [placeHolder]="'Author github'" [heading]="'Author\'s github'"
+                      [heading]="'Author\'s github'"></ngrx-text-input>
+                  </div>
+                </div>
+              </section>
+
+            <section id="classes">
+              <h2>Classes</h2>
+              <hr>
+              <ng-select #classesSelect
+                bindLabel="name"
+                [items]="definedClasses"
+                [multiple]="true"
+                [closeOnSelect]="false"
+                [searchable]="true"
+                bindLabel="name"
+                placeholder="Select classes"
+                (add)="onClassAdd($event)"
+                (remove)="onClassRemove($event)"
+                [(ngModel)]="selectedClasses"
+                >
+              </ng-select>
+
+              <!-- <h5>defined classes</h5>
+              <pre>
+                  {{ definedClasses | json}}
+                </pre>
+
+                <h5>selected classes</h5>
+
+              <pre>
+                {{ selectedClasses | json}}
+              </pre> -->
+
+              <br>
+              <br>
+            </section>
+      
+            <!-- Submit & Reset buttons -->
+            <section id="buttons">
+              <h3>All set?</h3>
+              <hr>
+              <button type="submit" form="appForm" [disabled]="(formState$ | async).isInvalid" class="btn btn-primary">Define
+                App</button>
+              <button type="button" form="appForm" [disabled]="(formState$ | async).isPristine && (formState$ | async).isUntouched && (formState$ | async).isUnsubmitted"
+                class="btn btn-info" (click)="reset()">Start
+                over</button>
+            </section>
+          </div>
+      
+        </div>
+      
+      
+      </main>
+    </div>

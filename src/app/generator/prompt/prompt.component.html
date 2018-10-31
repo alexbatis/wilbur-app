@@ -1,0 +1,55 @@
+<div *ngVar="(yeomanState$ | async) as yeomanState">
+  <div id="promptQuestions" *ngIf="yeomanState.promptQuestions">
+    <div *ngFor="let question of yeomanState.promptQuestions; let i = index;">
+
+      <div [ngSwitch]="question.type">
+        <div *ngSwitchCase="'input'">
+          {{question.message}}
+          <input type="text" value="{{question.default}}" [(ngModel)]="answers[question.name]">
+        </div>
+        <div *ngSwitchCase="'checkbox'">
+          {{question.message}}
+          <ul>
+            <li *ngFor="let choice of question.choices; let j = index">
+              <input type="checkbox" [(ngModel)]="answers[question.name].choices[j].selected">{{choice.name}}
+            </li>
+          </ul>
+        </div>
+        <div *ngSwitchCase="'confirm'">
+          {{question.message}}
+          <input type="checkbox" value="{{question.default}}" [(ngModel)]="answers[question.name]">
+        </div>
+        <div *ngSwitchCase="'expand'">
+          {{question.message}}
+          <div *ngFor="let choice of question.choices">
+            <div class="custom-control custom-radio mb-3">
+              <input name="custom-radio-1" class="custom-control-input" id="{{choice.name}}" value="{{choice.value}}" [(ngModel)]="answers[question.name]"
+                type="radio">
+              <label class="custom-control-label" for="{{choice.name}}">
+                <span>{{choice.name}}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="'list'">
+            {{question.message}}
+            <div *ngFor="let choice of question.choices">
+              <div class="custom-control custom-radio mb-3">
+                <input name="custom-radio-1" class="custom-control-input" id="{{choice.name}}" value="{{choice.name}}" [(ngModel)]="answers[question.name]"
+                  type="radio">
+                <label class="custom-control-label" for="{{choice.name}}">
+                  <span>{{choice.name}}</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        <div *ngSwitchDefault>
+          {{question.message}}
+          <input type="text" id="{{question.name}}" name="{{question.name}}" value="{{question.default}}" [(ngModel)]="answers[question.name]">
+        </div>
+      </div>
+    </div>
+    <br>
+    <button (click)="submitAnswers()">Submit</button>
+  </div>
+</div>

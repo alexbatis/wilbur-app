@@ -1,0 +1,40 @@
+<!-- Modal instance -->
+<ngx-smart-modal
+  #confirmationModal
+  identifier="confirmationModal"
+  (onDataAdded)="dataAdded()"
+  (onAnyCloseEventFinished)="onAnyClose()"
+  customClass="nsm-dialog-animation-ttb">
+
+
+  <h5>{{data.message}}</h5>
+
+  <!-- <div *ngIf="control && (currentClassFormState$ | async).controls.memberVariables.controls[memberVariableFormIndex].controls.decorators.controls[memberVariableDecoratorIndex]" style="min-width:50%"> -->
+    <!-- Select input for decorator name -->
+    <!-- <ngrx-select-input 
+      [control]="(classFormState$ | async).controls.memberVariables.controls[memberVariableFormIndex].controls.decorators.controls[memberVariableDecoratorIndex].controls.name" 
+      [options]="availableDecorators"
+      [placeHolder]="'Parameter'" 
+      [heading]="'Variable type'" 
+      [liveSearch]="true" 
+      (valueChange)="updateDecoratorParams($event)">
+    </ngrx-select-input> -->
+
+    <!-- Text inputs for decorator params (only shown if decorator params exist) -->
+    <!-- <div *ngIf="(classFormState$ | async).controls.memberVariables.controls[memberVariableFormIndex].controls.decorators.controls[memberVariableDecoratorIndex].controls.params.controls.length">
+      <div *ngFor="let param of (classFormState$ | async).controls.memberVariables.controls[memberVariableFormIndex].controls.decorators.controls[memberVariableDecoratorIndex].controls.params.controls; trackBy: trackByIndex; let i=index">
+        <ngrx-text-input
+          [control]="param.controls.value"
+          [placeHolder]="param.controls.name.value"
+          [heading]="param.controls.name.value"
+          [alternative]="false">
+        </ngrx-text-input>
+      </div>
+    </div> -->
+      
+  <!-- </div> -->
+
+  <!-- Close modal button -->
+  <button class="btn btn-primary-outline" (click)="confirm()">Confirm</button>
+  <button class="btn btn-primary-outline" (click)="confirmationModal.close()">Close</button>
+</ngx-smart-modal>

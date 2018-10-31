@@ -1,0 +1,112 @@
+<header class="header-global">
+  <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
+    <div class="container">
+      <a class="navbar-brand mr-lg-5" href="#" routerLink="/" style="padding-right:0; margin-right:0">
+        <h2 style="color:white; font-size: 1.3rem; text-transform:lowercase">
+          <img src="./assets/img/brand/wilbur.png">
+          wilbur
+        </h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="./index.html">
+                <h3>
+                  <img src="./assets/img/brand/wilbur.png"> wilbur
+                </h3>
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" id="navbar-toggler" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global"
+                aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" routerLink="/classes" class="nav-link" role="button">
+              <i class="ni ni-archive-2 d-lg-none"></i>
+              <span class="nav-link-inner--text">Classes</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-xl">
+              <div class="dropdown-menu-inner">
+                <a (click)="toggleNavbar('/classes')" class="media d-flex align-items-center">
+                  <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                    <i class="ni ni-archive-2"></i>
+                  </div>
+                  <div class="media-body ml-3">
+                    <h6 class="heading text-primary mb-md-1">Classes</h6>
+                    <p class="description d-none d-md-inline-block mb-0">View, create, and edit TypeScript classes with
+                      strong validation that will power your api.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" routerLink="/apps" class="nav-link" role="button">
+              <i class="ni ni-app d-lg-none"></i>
+              <span class="nav-link-inner--text">Apps</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-xl">
+              <div class="dropdown-menu-inner">
+                <a (click)="toggleNavbar('/apps')" class="media d-flex align-items-center">
+                  <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                    <i class="ni ni-app"></i>
+                  </div>
+                  <div class="media-body ml-3">
+                    <h6 class="heading text-success mb-md-1">Apps</h6>
+                    <p class="description d-none d-md-inline-block mb-0">Define your application to be scaffolded.
+                      Include TypeScript classes you've defined to hit the ground running.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" routerLink="/generator" class="nav-link" role="button">
+              <i class="ni ni-spaceship d-lg-none"></i>
+              <span class="nav-link-inner--text">Generators</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-xl">
+              <div class="dropdown-menu-inner">
+                <a (click)="toggleNavbar('/apps')" class="media d-flex align-items-center">
+                  <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                      <i class="ni ni-spaceship"></i>
+                  </div>
+                  <div class="media-body ml-3">
+                    <h6 class="heading text-warning mb-md-1">Generators</h6>
+                    <p class="description d-none d-md-inline-block mb-0">Define your application to be scaffolded.
+                      Include TypeScript classes you've defined to hit the ground running.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://github.com/alexbatis/wilbur-app" target="_blank"
+              data-toggle="tooltip" title="Star us on Github">
+              <i class="fa fa-2x fa-github d-sm-none d-lg-inline"></i>
+              <i class="fa fa-github d-lg-none"></i>
+
+              <span class="nav-link-inner--text d-lg-none">Github</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

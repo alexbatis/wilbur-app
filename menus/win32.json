@@ -1,0 +1,86 @@
+{
+  "menu": [{
+      "label": "&File",
+      "submenu": [
+        {
+          "label": "E&xit",
+          "command": "application:quit",
+          "accelerator": "Alt+F4"
+        }
+      ]
+    },
+    {
+      "label": "&View",
+      "submenu": [{
+          "label": "&Reload",
+          "command": "window:reload",
+          "accelerator": "Control+R"
+        },
+        {
+          "label": "Toggle &Full Screen",
+          "command": "window:toggle-full-screen",
+          "accelerator": "Control+Shift+F"
+        },
+        {
+          "label": "Developer",
+          "submenu": [{
+              "label": "Run Tests...",
+              "command": "application:run-specs",
+              "accelerator": "Control+Shift+T"
+            },
+            {
+              "label": "Toggle Developer &Tools",
+              "command": "window:toggle-dev-tools",
+              "accelerator": "Control+Shift+I"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "&Help",
+      "submenu": [{
+        "label": "About <%= productName %>",
+        "command": "application:about"
+      }]
+    },
+    {
+      "label": "Edit",
+      "submenu": [
+        {
+          "label": "Undo",
+          "accelerator": "CmdOrCtrl+Z",
+          "selector": "undo:"
+        },
+        {
+          "label": "Redo",
+          "accelerator": "Shift+CmdOrCtrl+Z",
+          "selector": "redo:"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "label": "Cut",
+          "accelerator": "CmdOrCtrl+X",
+          "selector": "cut:"
+        },
+        {
+          "label": "Copy",
+          "accelerator": "CmdOrCtrl+C",
+          "selector": "copy:"
+        },
+        {
+          "label": "Paste",
+          "accelerator": "CmdOrCtrl+V",
+          "selector": "paste:"
+        },
+        {
+          "label": "Select All",
+          "accelerator": "CmdOrCtrl+A",
+          "selector": "selectAll:"
+        }
+      ]
+    }
+  ]
+}

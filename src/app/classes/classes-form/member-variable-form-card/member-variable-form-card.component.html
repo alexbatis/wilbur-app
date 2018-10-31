@@ -1,0 +1,39 @@
+<argon-card>
+  <ngrx-text-input [control]="memberVariable.controls.name" [placeHolder]="'Member variable name'" [heading]="nameHeading"></ngrx-text-input>
+  <ngrx-select-input [control]="memberVariable.controls.type" [options]="typeOptions" [placeHolder]="'Member variable type'"
+    [heading]="'Variable type'"></ngrx-select-input>
+
+  <div>
+    <label class="custom-toggle" style="margin-bottom: -7px; margin-right: 10px;">
+      <input type="checkbox" [ngrxFormControlState]="memberVariable.controls.isArray">
+      <span class="custom-toggle-slider rounded-circle"></span>
+    </label>
+    This variable is an Array
+  </div>
+  <br>
+
+  <section id="decorators">
+    <h4>Decorators</h4>
+    <!-- <small>Adding decorators provides extensive field validation for your member variables</small> -->
+    <ng-container *ngIf="memberVariable.controls.decorators.value.length; then decorators; else noDecorators"></ng-container>
+
+    <!-- No decorators -->
+    <ng-template #noDecorators>
+      <p>There are no decorators defined for this class</p>
+    </ng-template>
+
+    <ng-template #decorators>
+      <decorator-form-list [decorators]="memberVariable.controls.decorators" [memberVariableId]="memberVariable.value.id"></decorator-form-list>
+    </ng-template>
+    <br>
+    <button (click)="createNewDecorator()" class="btn btn-sm btn-outline-primary" type="button">Define a new decorator</button>
+
+  </section>
+
+  <section id="member-card-buttons">
+    <br>
+    <div class="text-center">
+      <button class="btn btn-danger" (click)="deleteMemberVariable()" style="width:65%">Delete member variable</button>
+    </div>
+  </section>
+</argon-card>

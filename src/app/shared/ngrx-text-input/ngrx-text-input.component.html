@@ -1,0 +1,36 @@
+<div class="form-group" [ngClass]="{
+  'has-danger': (control.isInvalid && !control.isPristine),
+  'has-success': (control.isValid && !control.isPristine)
+}">
+  <h4 *ngIf="heading">{{heading}}</h4>
+  <input
+    [ngrxFormControlState]="control"
+    type="text"
+    placeholder="{{placeHolder}}"
+    class="form-control"
+    [ngClass]="{
+      'is-invalid': (control.isInvalid && !control.isPristine),
+      'is-valid': (control.isValid && !control.isPristine),
+      'form-control-alternative' : alternative
+    }"
+   />
+   <!-- Errors -->
+  <div *ngIf="!control.isPristine">
+    <span class="form-error" *ngIf="control?.errors.required">
+      {{placeHolder}} is required
+    </span>
+    <span class="form-error" *ngIf="control.errors.minLength">
+      Must be at least {{control.errors.minLength?.minLength}} characters
+    </span>
+    <span class="form-error" *ngIf="control.errors.email">
+      Must be a valid email address
+    </span>
+    <span class="form-error" *ngIf="control.errors?.pattern?.pattern === '/\\b[A-Z]\\w*\\b/'">
+      First letter of model name must be uppercase
+    </span>
+  </div>
+
+<!-- <pre>
+  {{ control | json }}
+    </pre> -->
+</div>

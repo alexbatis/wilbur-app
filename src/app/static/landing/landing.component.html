@@ -1,0 +1,228 @@
+<main>
+  <div class="position-relative" [ngsReveal]="{ reset: false }">
+    <!-- shape Hero -->
+    <section class="section section-lg section-shaped pb-250">
+      <div class="shape shape-style-1 shape-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="container py-lg-md d-flex">
+        <div class="col px-0">
+          <div class="row" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+            <div class="col-lg-12 text-center" style="padding-top:55px;">
+              <h1 class="display-3 text-white">It's time to spend less time writing boilerplate code.</h1>
+              <p class="lead text-white">Spend time on the work that <i>matters</i>. Let wilbur write
+                the boilerplate code for you. <br>
+                Fill out a quick form and get a fully functioning api built with node+express.js <strong>all written
+                  in
+                  typescript 3.x</strong></p>
+              <div class="btn-wrapper">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-grey" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+    <!-- 1st Hero Variation -->
+  </div>
+  <section class="section section-lg pt-lg-0 mt--200" style="visibility: none" style="padding-bottom:0px">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="row row-grid">
+            <div class="col-lg-4" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                    <i class="ni ni-archive-2"></i>
+                  </div>
+                  <h6 class="text-primary text-uppercase">Define your classes</h6>
+                  <p class="description mt-3">The typescript classes you define will generate a powerful api with a
+                    mongodb persistence layer and built in swagger docs.</p>
+                  <a href="#" routerLink="/classes" class="btn btn-primary mt-4">Your Classes</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
+                    <i class="ni ni-app"></i>
+                  </div>
+                  <h6 class="text-success text-uppercase">Define Your App</h6>
+                  <p class="description mt-3">Add classes you've defined to your apps configuration. Check few boxes
+                    that will help the generator best serve your needs. &nbsp;&nbsp;&nbsp;</p>
+                  <a href="#" routerLink="/apps"  class="btn btn-success mt-4">Your Apps</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
+                    <i class="ni ni-spaceship"></i>
+                  </div>
+                  <h6 class="text-warning text-uppercase">Generate Your App</h6>
+                  <p class="description mt-3">Download your app's configuration and generate your app. It's as easy
+                    as
+                    downloading a json file and starting the generator</p>
+                  <a href="#" routerLink="/generator"  class="btn btn-warning mt-4">Generate your app</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-lg">
+    <div class="container" [ngsReveal]="{ reset: true, delay: 100, duration : 742 }">
+      <div class="row row-grid align-items-center">
+        <div class="col-md-6 order-md-2">
+          <img src="./assets/img/technologies.png" class="img-fluid floating">
+        </div>
+        <div class="col-md-6 order-md-1">
+          <div class="pr-md-5">
+            <!-- <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-5">
+              <i class="ni ni-settings-gear-65"></i>
+            </div> -->
+            <h3>Create a full featured app in minutes</h3>
+            <p>Define your classes, and we'll handle the rest.</p>
+            <ul class="list-unstyled mt-5">
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="badge badge-circle badge-success mr-3">
+                      <i class="ni ni-settings-gear-65"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">Node+Express server <strong>all written in TypeScript 3+</strong></h6>
+                  </div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="badge badge-circle badge-success mr-3">
+                      <i class="ni ni-html5"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">MongoDB database layer using <a href="https://github.com/szokodiakos/typegoose">TypeGoose</a></h6>
+                  </div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="badge badge-circle badge-success mr-3">
+                      <i class="ni ni-html5"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">API model validation using <a href="https://github.com/typestack/class-validator">class-validator</a></h6>
+                  </div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="badge badge-circle badge-success mr-3">
+                      <i class="ni ni-satisfied"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">Automatically generated <a href="https://swagger.io/docs/"> Swagger docs for your
+                        API</a></h6>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-lg bg-gradient-default">
+    <div class="container pt-lg pb-300">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10" data-aos="zoom-in-up" data-aos-delay="50" data-aos-duration="700">
+          <h2 class="display-3 text-white">Getting Started</h2>
+          <p class="lead text-white">Follow a few simple steps and well have you generating api's in no time.</p>
+          <br>
+          <br>
+        </div>
+      </div>
+      <div class="row row-grid mt-5">
+        <div class="col-lg-4" data-aos="zoom-in-up" data-aos-delay="50" data-aos-duration="700">
+          <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+            <i class="ni ni-settings text-primary"></i>
+          </div>
+          <h5 class="text-white mt-3">Define your Typescript classes</h5>
+          <p class="text-white mt-3">Define member variables for your typescript class, and create validators for
+            strong api validation.</p>
+        </div>
+        <div class="col-lg-4" data-aos="zoom-in-up" data-aos-delay="50" data-aos-duration="700">
+          <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+            <i class="ni ni-ruler-pencil text-primary"></i>
+          </div>
+          <h5 class="text-white mt-3">Define your app</h5>
+          <p class="text-white mt-3">Define your an app's coniguration, and give it classes you've defined. </p>
+        </div>
+        <div class="col-lg-4" data-aos="zoom-in-up" data-aos-delay="50" data-aos-duration="700">
+          <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+            <i class="ni ni-atom text-primary"></i>
+          </div>
+          <h5 class="text-white mt-3">Generate</h5>
+          <p class="text-white mt-3">Download your app's configuration as a json file and run the generator. $ yo
+            wilbur</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-grey" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
+  <br>
+
+  <section class="section section-lg pt-0" style="padding-bottom:25px">
+    <div class="container">
+      <div class="card bg-gradient-warning shadow-lg border-0" data-aos="zoom-in-up" data-aos-delay="50" data-aos-duration="700">
+        <div class="p-5">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h3 class="text-white">Want to build your own desktop generator?</h3>
+              <p class="lead text-white">This desktop app leverages yeoman to scaffold and generate projects. If you're interested in developing 
+                an desktop application using Electron & Yeoman, I've got you covered. You can clone this project and start developing your own cross platform
+                desktop app integrated with Yeoman and can enjoy features such as Angular 6+ with hot reloads and a generator written in Typescript 3+.
+              </p>
+            </div>
+            <div class="col-lg-3 ml-lg-auto">
+              <a href="javascript:void(0)" (click)="openLink('https://github.com/alexbatis/ngx-yeoman-app')" target="_blank" class="btn btn-lg btn-block btn-white">Check out the repo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

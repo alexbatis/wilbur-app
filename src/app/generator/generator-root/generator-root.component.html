@@ -1,0 +1,91 @@
+<main>
+  <div class="position-relative" [ngsReveal]="{ reset: false }">
+    <!-- Hero for FREE version -->
+    <section class="section section-lg section-hero section-shaped">
+      <!-- Background circles -->
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+      </div>
+      <div class="container-fluid shape-container d-flex align-items-center py-lg">
+        <div class="col px-0">
+          <div class="row align-items-center justify-content-center" [ngsReveal]="{ duration: 100, reset: true }">
+            <div class="col-lg-6 text-center">
+              <h1 class="text-white">Generator</h1>
+              <p class="lead text-white">Sit back and let the generator do the work for you.
+                <br>
+                Pick one of the options below to get started.
+              </p>
+              <!-- <p class="lead text-white"></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-grey" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+  </div>
+  <section class="section section-lg pt-lg-0 mt--150" style="visibility: none; background-color:#f4f5f7" style="padding-bottom:33px">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="row row-grid">
+            <div class="col-lg-4" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <!-- <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                      <i class="ni ni-archive-2"></i>
+                    </div> -->
+                  <h6 class="text-orange-1 text-uppercase">Create a boilerplate project</h6>
+                  <p class="description mt-3">You want an app fast. You don't have time to define any configurations
+                    and you don't care about all of
+                    the awesome features you'll get if you take just a few minutes to define some TypeScript classes.
+                    I'll include a simple todo's example in your api
+                    so you can find your way around.
+                  </p>
+                  <a href="#" routerLink="/generator/boilerplate" class="btn btn-md btn-orange-1 mt-4" style="margin-left:0px">Create Boilerplate project</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <h6 class="text-orange-2 text-uppercase">Generate a defined app</h6>
+                  <p class="description mt-3">Create a new app that you've defined in the previous steps.
+                    This option will take generate an application with the Typescript classes you've defined for this app.
+                    Not only do you get a full application, but for each TypeScript class you've defined you get controllers, services, mongodb typegoose models, and swagger docs.
+                  </p>
+                  <a href="#" routerLink="/generator/app" class="btn btn-orange-2 mt-4">Generate defined app</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4" [ngsReveal]="{ duration: 690, delay : 100, reset: true }">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <h6 class="text-red-1 text-uppercase">Modify an existing app</h6>
+                  <p class="description mt-3">Make changes to an app you've already generated. 
+                      This option allows you to create a new model, remove an existing model, or modify an existing model.
+                      No need to modify all of the source code yourself, ripping out what you dont want and adding back what you want. 
+                      This generator has got you covered.</p>
+                  <a href="#" routerLink="/generator/class" class="btn btn-red-1 mt-4">Modify existing app</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

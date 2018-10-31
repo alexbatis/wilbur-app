@@ -1,0 +1,115 @@
+<main>
+  <app-page-header [title]="'Modify an existing app'" [subtitle]="'You\'ve generated your own app, now let\'s make it better.'">
+  </app-page-header>
+
+  <section class="section section-lg pt-lg-0" style="visibility: none; background-color:#f4f5f7" style="padding-bottom:33px">
+    <div *ngVar="(yeomanState$ | async) as yeomanState">
+      <div class="container">
+
+        <ng-container *ngIf="yeomanState.installedGenerators.loading || yeomanState.generatorRunning; then loading; else loaded"></ng-container>
+
+        <ng-template #loading>
+          <div>
+            <app-spinner></app-spinner>
+          </div>
+        </ng-template>
+        <ng-template #loaded>
+
+          <div *ngIf="!generatorIsInstalled">
+            <install-generator-card></install-generator-card>
+          </div>
+
+          <div *ngIf="!classGeneratorAction && generatorIsInstalled">
+            <h2>Lets modify your app</h2>
+            <div class="custom-control custom-radio mb-3">
+              <input name="custom-radio-1" class="custom-control-input" id="add_edit" value="add_edit" [(ngModel)]="classGeneratorAction"
+                type="radio">
+              <label class="custom-control-label" for="add_edit">
+                <span>Add/Edit an Existing Class</span>
+              </label>
+            </div>
+            <div class="custom-control custom-radio mb-3">
+              <input name="custom-radio-1" class="custom-control-input" id="remove" value="remove" [(ngModel)]="classGeneratorAction"
+                type="radio">
+              <label class="custom-control-label" for="remove">
+                <span>Remove an Existing Class</span>
+              </label>
+            </div>
+          </div>
+
+          <div *ngIf="classGeneratorAction">
+            <div>
+
+              <!-- ADD A CLASS  -->
+              <div *ngIf="classGeneratorAction === 'add_edit' && !selectedClass" style="min-height:422px">
+                <div *ngVar="(classesState$ | async) as classesState">
+                  <h4>Select the class you'd like to add to your app</h4>
+                  <p>If the class already exists in your app, it will be overwritten with the latest version.</p>
+
+                  <ng-select #classesSelect [items]="classesState" bindLabel="name" [multiple]="false" [closeOnSelect]="false"
+                    [searchable]="true" placeholder="Select Class" [(ngModel)]="selectedClass">
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- REMOVE A CLASS -->
+              <div *ngIf="classGeneratorAction === 'remove'" style="min-height:422px">
+                <h4>Remove a class</h4>
+                <div *ngIf="generatorIsInstalled && !generatorRan">
+                  <h5>You've chosen to remove a class</h5>
+                  <button (click)="test()" class="btn btn-primary">Clear this selection</button>
+                  <hr>
+
+                  <app-directory-selector></app-directory-selector>
+
+                  <div *ngIf="yeomanState.selectedDirectoryPath">
+                    <br>
+                    <h5>Your app will be generated at {{yeomanState.selectedDirectoryPath}}</h5>
+                    <hr>
+                    <br>
+                    <h3>All set?</h3>
+                    <button (click)="beginClassGenerator()" class="btn btn-primary">Start the Generator</button>
+                  </div>
+
+                  <br>
+                  <br>
+                </div>
+                <app-prompt></app-prompt>
+              </div>
+
+
+
+
+              <div *ngIf="classGeneratorAction === 'add_edit'" style="min-height:422px">
+                <div *ngIf="selectedClass && generatorIsInstalled && !generatorRan">
+                  <h5>You've chosen to generate the app with the name {{selectedClass.name}}</h5>
+                  <button (click)="test()" class="btn btn-primary">Clear this selection</button>
+                  <hr>
+
+                  <app-directory-selector></app-directory-selector>
+
+                  <div *ngIf="yeomanState.selectedDirectoryPath">
+                    <br>
+                    <h5>Your app will be generated at {{yeomanState.selectedDirectoryPath}}</h5>
+                    <hr>
+                    <br>
+                    <h3>All set?</h3>
+                    <button (click)="beginClassGenerator()" class="btn btn-primary">Generate your app</button>
+                  </div>
+
+                  <br>
+                  <br>
+                </div>
+                <app-prompt></app-prompt>
+              </div>
+
+
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+
+
+</main>

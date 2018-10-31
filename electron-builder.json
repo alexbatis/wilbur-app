@@ -1,0 +1,40 @@
+{
+  "productName": "wilbur",
+  "directories": {
+    "output": "release/"
+  },
+    "files": [
+        "**/*",
+        "!*.ts",
+        "!*.code-workspace",
+        "!LICENSE.md",
+        "!package.json",
+        "!package-lock.json",
+        "!src/",
+        "!e2e/",
+        "!hooks/",
+        "!.angular-cli.json",
+        "!_config.yml",
+        "!karma.conf.js",
+        "!tsconfig.json",
+        "!tslint.json"
+    ],
+  "win": {
+    "icon": "src/assets/img/brand/wilbur.png",
+    "target": [
+      "portable"
+    ]
+  },
+  "mac": {
+    "icon": "src/assets/img/brand/wilbur.icns",
+    "target": [
+      "default"
+    ]
+  },
+  "linux": {
+    "icon": "dist",
+    "target": [
+      "AppImage"
+    ]
+  }
+}

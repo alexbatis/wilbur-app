@@ -1,0 +1,103 @@
+<main>
+  <div class="position-relative" [ngsReveal]="{ reset: false }">
+    <!-- Hero for FREE version -->
+    <section class="section section-lg section-hero section-shaped">
+      <!-- Background circles -->
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+      </div>
+      <div class="container-fluid shape-container d-flex align-items-center py-lg">
+        <div class="col px-0">
+          <div class="row align-items-center justify-content-center" [ngsReveal]="{ duration: 100, reset: true }">
+            <div class="col-lg-6 text-center">
+              <!-- <img src="./assets/img/brand/white.png" style="width: 200px;" class="img-fluid"> -->
+              <h1 class="text-white">Classes</h1>
+              <p class="lead text-white">Define your classes and watch them come to life effortlessly.</p>
+              <div class="btn-wrapper mt-5">
+                <a href="#" routerLink="/classes/form/new" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
+                  <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
+                  <span class="btn-inner--text">Define a class</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-grey" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+  </div>
+  <section class="section section-components pb-0" id="section-components" [ngsReveal]="{ duration: 100, reset: false }">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <!-- Basic elements -->
+          <h1 class="mb-5">
+            <span>Classes you've defined</span>
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div *ngIf="!(classesState$ | async).length">
+          <h4>You haven't defined any classes.</h4>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let class of (classesState$ | async)" style="padding-bottom:50px">
+          <div class="card shadow" [ngsReveal]="{ duration: 690, reset: true }">
+            <div class="card-body">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                  <h3 class="h4 text-primary font-weight-bold">{{class.name}}</h3>
+                  <div *ngFor="let memberVariable of class.memberVariables">
+                    <h5>
+                      <span class="badge  badge-info">{{memberVariable.name}}
+                        : {{memberVariable |
+                        arrayPrefix}}</span>
+                    </h5>
+                  </div>
+
+                  <br>
+                  <ul class="nav nav-pills nav-pills-circle mb-3" id="tabs_2" role="tablist">
+                    <!-- <li class="nav-item">
+                      <a class="nav-link rounded-circle" style="cursor:pointer">
+                        <div class="d-block">
+                          <i class="fa fa-2x fa-external-link nav-icon" aria-hidden="true"></i>
+                        </div>
+                      </a>
+                    </li> -->
+                    <li class="nav-item" (click)="editClass(class)">
+                      <a class="nav-link rounded-circle" style="cursor:pointer">
+                        <div class="d-block">
+                          <i class="fa fa-2x fa-cog nav-icon" aria-hidden="true"></i>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item" (click)="confirmClassDelete(class)">
+                      <a class="nav-link rounded-circle" style="cursor:pointer">
+                        <div class="d-block">
+                          <i class="fa fa-2x fa-trash nav-icon" aria-hidden="true"></i>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

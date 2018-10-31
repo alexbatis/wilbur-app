@@ -1,0 +1,11 @@
+<app-form-dumb
+    [formState$]="appFormState$"
+    [definedClasses]="definedClasses"
+    (submitAction)="submitApp()"
+    (resetFormAction)="resetForm()"
+    (addClassToApp)="addClassToApp($event)"
+    (removeClassFromApp)="removeClassFromApp($event)"
+></app-form-dumb>
+
+<!-- [errors]="errors" -->
+<!-- (newMemberVariableAction)="addNewMemberVariable($event)" -->

@@ -1,0 +1,60 @@
+<!-- [ngClass]="{
+  'has-danger': (control.isInvalid && !control.isPristine),
+  'has-success': (control.isValid && !control.isPristine)
+}"> -->
+
+<!-- {
+  'is-invalid': (control.isInvalid && !control.isPristine),
+  'is-valid': (control.isValid && !control.isPristine),
+  'form-control-alternative' : alternative
+}" -->
+
+<div>
+  <div id="select-container-{{uniqueContainer}}">
+  </div>
+</div>
+
+
+<div class="form-group" id="select-form-{{uniqueContainer}}" #fixedBox>
+  <h4 *ngIf="heading">{{heading}}</h4>
+
+  <div id="selector-{{uniqueContainer}}">
+    <!-- <select id="select-{{uniqueContainer}}" [ngrxFormControlState]="control" class="form-control" data-live-search="true"
+      [ngClass]="" (change)="onSelectionChange($event)">
+      <option value=""></option>
+      <option *ngFor="let option of options" value="{{option.value}}">{{option.label}}</option>
+    </select> -->
+
+    <ng-select
+      id="select-{{uniqueContainer}}"
+      [items]="options"
+      bindLabel="label"
+      bindValue = "value"
+      [multiple]="false"
+      [closeOnSelect]="true"
+      [searchable]="true"
+      [ngrxFormControlState]="control"
+      (change)="onSelectionChange($event)"
+      placeholder="{{placeHolder}}"
+      >
+  </ng-select>
+
+  <!-- [(ngModel)]="selectedApp" -->
+
+  </div>
+  <div id="{{uniqueContainer}}"></div>
+
+
+  <!-- Errors -->
+  <div *ngIf="!control.isPristine">
+    <span class="form-error" *ngIf="control?.errors.required">
+      {{placeHolder}} is required
+    </span>
+  </div>
+
+  <!-- <pre>
+    {{ control | json}}
+  </pre> -->
+
+
+</div>
