@@ -6,6 +6,9 @@ wilbur allows you to quickly and easily define an application and its associated
 
 By simply defining a class (class name, its member variables and their types & constraints, etc) you are provided with the code for a [TypeScript](https://www.typescriptlang.org/) class with strong field validation which by default interfaces with [MongoDB](https://www.mongodb.com/), a [MongoDB](https://www.mongodb.com/) service, request controllers/validators/routers, and [Swagger](https://swagger.io/) documentation. You get all of these features from writing absolutely zero code.
 
+## Getting started
+I've written an extensive guide on how to get started using wilbur from scratch [here](https://medium.com/generate-powerful-nodejs-apps-written-in-typesscri/getting-started-with-wilbur-7b1e607818fa). Check it out for a step by step guide on generating an [example application](https://github.com/alexbatis/generator-wilbur-example).
+
 ## Download the app
 - [Windows](https://ufile.io/qu1ah)
 - [MacOs](https://ufile.io/srko7)
