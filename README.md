@@ -7,8 +7,10 @@ wilbur allows you to quickly and easily define an application and its associated
 By simply defining a class (class name, its member variables and their types & constraints, etc) you are provided with the code for a [TypeScript](https://www.typescriptlang.org/) class with strong field validation which by default interfaces with [MongoDB](https://www.mongodb.com/), a [MongoDB](https://www.mongodb.com/) service, request controllers/validators/routers, and [Swagger](https://swagger.io/) documentation. You get all of these features from writing absolutely zero code.
 
 ## Download the app
-- [Windows]()
-- [MacOs](https://uploadfiles.io/28arp)
+- [Windows](https://ufile.io/qu1ah)
+- [MacOs](https://ufile.io/srko7)
+
+(note: if on Mac you get an error that says "wilbur can't be opened because it is from an unidentified developer", just navigate to System Preferences->Security & Privacy and you should see a message that says that "wilbur was blocked from opening because it is not from an identified developer" click the button next to that click the button labeled "Open anyways")
 
 
 
